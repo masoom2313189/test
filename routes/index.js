@@ -1,11 +1,8 @@
-const express = require('express');
+const express=require('express')
+const Router=express.Router()
 
-const router = express.Router();
-const homeController = require('../controllers/home_controller');
+// this is the entry point of all the api named url's
+console.log("i m in")
+Router.use('/api',require('./api/index'));
 
-console.log('router loaded');
-
-router.get('/', homeController.home);
-router.use('/project', require('./project'));
-
-module.exports = router;
+module.exports=Router

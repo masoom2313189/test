@@ -1,42 +1,89 @@
-Issue Tracker
+# Polling_System_Api
+Polling aPI For coding ninja test 
+Task I m Working upon
 
-###Deployment Link:  [issue tracker](https://issue-tracker-68gp.onrender.com/)
-
-
-Problem statement
-Create a nodejs + ejs  application to track issues/bugs for a project. Read the Features below on what to implement. You can take inspiration from Github issue tracker or some other application.
-
-Instructions
-You are ALLOWED to style the app any way you like.
-Once you have finished with the test, make a video recording of your computer screen (via phone or a software like OBS/screencastify etc) and give a walkthrough of your product (showcase project functionalities). The video can be UPTO 5 mins long.
-Upload frontend and backend code on github, and share the URLs.
-
-Features
-Build a neat UI
-Home Page
-Show a list of projects.
-Give a button to create a new Project (On creating a new project it should appear in the list)
-Create Project Page
-Accept the following fields to create a project
-Name
-Description
-Author
-Project Detail Page
-When the user clicks on a project (in home page) redirect the user to this page which will show bugs related to this project
-User should be able to perform following actions on this page
-Filter by multiple labels i.e. I should be able to filter by 2 or more labels at the same time
-Filter by author
-Search by title and description
-A button to create an issue
-Create issue page
-User should be able to create an issue for a project
-Accept the following fields
-Title
-Description
-Labels (multiple labels can be added to a project, IF a project has a label already show it (in dropdown) as the user types the label in)
-Author
+You need to create an API where anyone can create questions with options and also add votes to it
+    - Authentication/User identity is not needed, this is going to be a completely open application, however
+if you want to and think there’s extra time, you can create authentication
+- Features
+    - Create a question (you can add as many questions as you want)
+    - Add options to a question
+    - Add a vote to an option of question
+    - Delete a question → (optional: A question can’t be deleted if one of it’s options has votes)
+    - Delete an option → (optional: An option can’t be deleted if it has even one vote given to it)
+    - View a question with it’s options and all the votes given to it
+- Required Routes (Remember, in a real test, you won’t be given routes mostly)
+    - /questions/create (To create a question)✅
+    - /questions/:id/options/create (To add options to a specific question)
+    - /questions/:id/delete (To delete a question)✅
+    - /options/:id/delete (To delete an option)
+    - /options/:id/add_vote (To increment the count of votes)
+    - /questions/:id (To view a question and it’s options)✅
 
 
-FREE TIPS:
-For good UI, search for similar apps online or search Dribble, Behance websites for UI mockups.
+{
+    id: 1,
+    title: “Who is your favorite from the Ninjas Mentors”,
+    options: [
+    {
+        id: 1,
+        text: “Aakash Tyagi”,
+        votes: 100,
+
+        link_to_vote: “http://localhost:8000/options/1/add_vote”,
+    },
+    {
+        id: 2,
+        text: “Parikh Jain”,
+        votes: 101,
+        link_to_vote: “http://localhost:8000/options/2/add_vote”,
+    },
+    {
+        id: 3,
+        text: “Ankush Singla”,
+        votes: 102,
+        link_to_vote: “http://localhost:8000/options/3/add_vote”,
+    },
+    {
+        id: 4,
+        text: “Nidhi”,
+        votes: 110,
+        link_to_vote: “http://localhost:8000/options/3/add_vote”,
+    }
+    ]
+}
+
+
+Answer for above questions 
+First i have craete a an api which actively runing on render who's extension is https://polling-system-api-avaf.onrender.com
+and which is working on Postman 
+step 1 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/question/create (to create the question ) request must be POST
+step 2 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/question/view/id ( id = Your question id ) request msut be GET
+step 3 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/options/id  to vote the quetion , id is your question option id
+step 4 - https://polling-system-api-avaf.onrender.com/api/v1/question/options/id/create id is your question id 
+step 5 - https://polling-system-api-avaf.onrender.com/api/v1/options/delete/id .....id is your question ooption id
+step 6 - https://polling-system-api-avaf.onrender.com/api/v1/question/delete/id ...... id is your question id
+
+
+
+To use this Api is your local machine you can download the zip file and extrat the file and then after run npm install to install node dependencies and  in config section you have to provide your data base link/url 
+after that npm start comand is run in your terminal 
+it is running the server on port 3000
+and coonect to your msg is showed then u is good to go on postman 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
