@@ -1,23 +1,16 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://GarimaJain:kPKjUaqgs0b1ApUZ@cluster0.whteafy.mongodb.net/?retryWrites=true&w=majority');
 
-// ----->this the code for using the cloud mongodb atlas ------------------------------------------------------- 
-// const url='mongodb+srv://GarimaJain:kPKjUaqgs0b1ApUZ@cluster0.whteafy.mongodb.net/?retryWrites=true&w=majority';
-const connectParams={
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-}
-
-
-
-
-
-const db = mongoose.connection
-
-db.on('error', console.error.bind(console, 'error connecting to database'));
-
-db.once('open', ()=>{
-    console.log("successfully connected to database : mongoDB");
+// connecting mongoose to its default server and ecommerceDB
+mongoose.connect('mongodb+srv://soumyasri2245:Soumya22%4034@cluster0.u2ywt3o.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true
 });
 
-module.exports = mongoose;
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, "Error connecting to MongoDB"));
+
+db.once('open', function(){
+    console.log('Connected to Database :: MongoDB');
+});
+
+module.exports = db;

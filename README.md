@@ -1,89 +1,40 @@
-# Polling_System_Api
-Polling aPI For coding ninja test 
-Task I m Working upon
-
-You need to create an API where anyone can create questions with options and also add votes to it
-    - Authentication/User identity is not needed, this is going to be a completely open application, however
-if you want to and think there’s extra time, you can create authentication
-- Features
-    - Create a question (you can add as many questions as you want)
-    - Add options to a question
-    - Add a vote to an option of question
-    - Delete a question → (optional: A question can’t be deleted if one of it’s options has votes)
-    - Delete an option → (optional: An option can’t be deleted if it has even one vote given to it)
-    - View a question with it’s options and all the votes given to it
-- Required Routes (Remember, in a real test, you won’t be given routes mostly)
-    - /questions/create (To create a question)✅
-    - /questions/:id/options/create (To add options to a specific question)
-    - /questions/:id/delete (To delete a question)✅
-    - /options/:id/delete (To delete an option)
-    - /options/:id/add_vote (To increment the count of votes)
-    - /questions/:id (To view a question and it’s options)✅
-
-
-{
-    id: 1,
-    title: “Who is your favorite from the Ninjas Mentors”,
-    options: [
-    {
-        id: 1,
-        text: “Aakash Tyagi”,
-        votes: 100,
-
-        link_to_vote: “http://localhost:8000/options/1/add_vote”,
-    },
-    {
-        id: 2,
-        text: “Parikh Jain”,
-        votes: 101,
-        link_to_vote: “http://localhost:8000/options/2/add_vote”,
-    },
-    {
-        id: 3,
-        text: “Ankush Singla”,
-        votes: 102,
-        link_to_vote: “http://localhost:8000/options/3/add_vote”,
-    },
-    {
-        id: 4,
-        text: “Nidhi”,
-        votes: 110,
-        link_to_vote: “http://localhost:8000/options/3/add_vote”,
-    }
-    ]
-}
-
-
-Answer for above questions 
-First i have craete a an api which actively runing on render who's extension is https://polling-system-api-avaf.onrender.com
-and which is working on Postman 
-step 1 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/question/create (to create the question ) request must be POST
-step 2 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/question/view/id ( id = Your question id ) request msut be GET
-step 3 - copy the url https://polling-system-api-avaf.onrender.com/api/v1/options/id  to vote the quetion , id is your question option id
-step 4 - https://polling-system-api-avaf.onrender.com/api/v1/question/options/id/create id is your question id 
-step 5 - https://polling-system-api-avaf.onrender.com/api/v1/options/delete/id .....id is your question ooption id
-step 6 - https://polling-system-api-avaf.onrender.com/api/v1/question/delete/id ...... id is your question id
+# E-Commerce-API
 
 
 
-To use this Api is your local machine you can download the zip file and extrat the file and then after run npm install to install node dependencies and  in config section you have to provide your data base link/url 
-after that npm start comand is run in your terminal 
-it is running the server on port 3000
-and coonect to your msg is showed then u is good to go on postman 
+# ABOUT
+This is an E-commerce API made using Node.Js & MongoDB. 
+
+STEPS TO USE THE API:
+1) run "npm init" command on terminal in this projects directory
+2) start the server using node app.js
+3) Open postman
+4) Make a GET request on localhost:3000/products
+5) The products should be visible
+
+STEPS TO CREATE A NEW PRODUCT: 
+1) start the server using node app.js
+2) Open postman
+3) put localhost:3000/products/create as the url. 
+4) Select Body tab below the url textarea and then select x-www-form-urlencoded
+5) Add name & quantity as the keys and set the desired values for the keys.
+6) Make a POST request.
+7) If you recieve the message saying new product added successfully then you have done everything correct.
+8) The product is created. Check it out by making a GET request at localhost:3000/products
+
+STEPS TO DELETE A PRODUCT:
+1) copy the object id of the product you want to delete.
+2) add the id after localhost:3000/products/
+3) Make a DELETE request.
+4) You will recieve a message saying deleted successfully.
+
+STEPS TO UPDATE THE QUANTITY OF A PRODUCT:
+1) Copy the object id of the product whose quantity you want to update
+2) Put the id after localhost:3000/products/
+3) After putting the id add /update_quantity/?number={x} in the url where x is the number by which you want to increase or decrease the quantity.
+4) the url should be looking like localhost:3000/products/{id}/update_quantity/?number={x}
+5) Make a POST request and you should get a message containing the update product
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# TECHSTACK
+Node.Js, MongoDB
